@@ -68,11 +68,6 @@ Handlujacy::Handlujacy(string im, string nzwsk, string psl, string np, double wr
     transakcje = trnskcj;
 }
 
-void zmianaZatrudnienia(Pracownik prcwnk)
-{
-    prcwnk.zatrudnienie =! prcwnk.zatrudnienie;
-}
-
 void czyszczenie()
 {
     printf("\033[2J"); // Czyści ekran
