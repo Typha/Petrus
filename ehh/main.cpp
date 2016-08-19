@@ -11,14 +11,12 @@
 int main()
 {
     vector <Pracownik> baza;
-    // Zbieszona ekipa...
-    baza.push_back(Staly("Piotr","WierchowieÒski","63032300373","4457301037",3300));
-    baza.push_back(Staly("Miko≥aj","Stawrogin","89102905493","7260631988",4100));
+    baza.push_back(Staly("Piotr","Wierchowie√±ski","63032300373","4457301037",3300));
+    baza.push_back(Staly("Miko≈Çaj","Stawrogin","89102905493","7260631988",4100));
     baza.push_back(Zleceniobiorca("Iwan","Szatow","77082213114","6825506522",2300,40));
-    baza.push_back(Zleceniobiorca("Aleksy","Kiri≥≥ow","85052403018","5913117469",2700,25));
+    baza.push_back(Zleceniobiorca("Aleksy","Kiri≈Ç≈Çow","85052403018","5913117469",2700,25));
     baza.push_back(Handlujacy("Sergiusz","Liputin","67052801713","4621950579",560,14));
     baza.push_back(Handlujacy("Ignacy","Lebiadkin","79091902931","8442924521",770,10));
-    //...Koniec :)
     int wybor;
     do
     {

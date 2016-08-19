@@ -68,6 +68,16 @@ Handlujacy::Handlujacy(string im, string nzwsk, string psl, string np, double wr
     transakcje = trnskcj;
 }
 
+void Zleceniobiorca::obliczZarobki()
+{
+
+}
+
+void Handlujacy::obliczZarobki()
+{
+
+}
+
 void czyszczenie()
 {
     printf("\033[2J"); // Czyści ekran
