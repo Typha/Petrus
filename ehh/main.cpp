@@ -1,32 +1,36 @@
-//=======================================
-// Nazwa  : main.cpp
-// Autor  : Kefas
-// Wersja : 2.32
-// Opis   : Program drugi - Informatyka 2
-//=======================================
+//===============================================
+// Nazwa          : main.cpp
+// System         : Windows 8
+// Autor          : Piotr
+// Opis           : Program drugi - Informatyka 2
+// Refaktoryzacja : 19.08.2016
+//===============================================
 
 #include <vector>
+#include <windows.h>
 #include "pracownik.h"
 
 int main()
 {
-    vector <Pracownik> baza;
-    baza.push_back(Staly("Piotr","Wierchowieñski","63032300373","4457301037",3300));
-    baza.push_back(Staly("Mikołaj","Stawrogin","89102905493","7260631988",4100));
-    baza.push_back(Zleceniobiorca("Iwan","Szatow","77082213114","6825506522",2300,40));
-    baza.push_back(Zleceniobiorca("Aleksy","Kiriłłow","85052403018","5913117469",2700,25));
-    baza.push_back(Handlujacy("Sergiusz","Liputin","67052801713","4621950579",560,14));
-    baza.push_back(Handlujacy("Ignacy","Lebiadkin","79091902931","8442924521",770,10));
-    int wybor;
+    vector <Pracownik*> kadra;
+    kadra.push_back(new Staly("Piotr","Wierchowienski","63032300373","4457301037",3300));
+    kadra.push_back(new Staly("Mikolaj","Stawrogin","89102905493","7260631988",4100));
+    kadra.push_back(new Zleceniobiorca("Iwan","Szatow","77082213114","6825506522",2300,50));
+    kadra.push_back(new Zleceniobiorca("Aleksy","Kirillow","85052403018","5913117469",2700,35));
+    kadra.push_back(new Handlujacy("Sergiusz","Liputin","67052801713","4621950579",800,14));
+    kadra.push_back(new Handlujacy("Ignacy","Lebiadkin","79091902931","8442924521",850,10));
+    unsigned short wybor;
     do
     {
-        cout << "Edycja kadry pracowniczej:" << endl;
-        cout << "[1] --> Dodaj stalego pracownika na koncu danych" << endl;
-        cout << "[2] --> Dodaj zleceniobiorce na koncu danych" << endl;
-        cout << "[3] --> Dodaj handulajcego na koncu danych" << endl;
-        cout << "[4] --> Zmien stan zatrudnienia pracownika" << endl; // zastanowi  si
-        cout << "[5] --> Usun pracownika z kadry" << endl;
-        cout << "[6] --> Usun cala kadre" << endl;
+        cout << "Zarzadzanie kadra pracownicza" << endl;
+        cout << "[1] --> Zatrudnij stalego pracownik" << endl;
+        cout << "[2] --> Zatrudnij zleceniobiorce" << endl;
+        cout << "[3] --> Zatrudnij handlujacego" << endl;
+        cout << "[4] --> Wyswietl dane pracownika" << endl;
+        cout << "[5] --> Wyswietl dane kadry" << endl;
+        cout << "[6] --> Wyswietl liczbe pracownikow" << endl;
+        cout << "[7] --> Zwolnij pracownika" << endl;
+        cout << "[8] --> Zwolnij cala kadre" << endl;
         cout << "[0] --> Wyjscie" << endl;
         cout << "Twoj wybor: " << endl;
         do
@@ -36,24 +40,78 @@ int main()
             cin >> wybor;
         }
         while(!cin.good());
+        cout << endl;
         switch(wybor)
         {
         case 1 :
-            baza.push_back(Staly());
+            kadra.push_back(new Staly());
             break;
         case 2 :
-            baza.push_back(Zleceniobiorca());
+            kadra.push_back(new Zleceniobiorca());
             break;
         case 3 :
-            baza.push_back(Handlujacy());
+            kadra.push_back(new Handlujacy());
             break;
         case 4 :
-            break;
+        {
+            if(kadra.empty())
+            {
+                cout << "Brak zatrudnionych pracownikow. [ENTER]" << endl;
+                enter();
+                break;
+            }
+            cout << "Wyszukiwanie pracownika na podstawie imienia i nazwiska...";
+            string szukaneImie,szukaneNazwisko;
+            cout << "Imie: ";
+            cin >> szukaneImie;
+            cout << "Nazwisko: ";
+            cin >> szukaneNazwisko;
+            unsigned int i;
+            for(i=0; i<kadra.size(); i++)
+            {
+                if(kadra[i]->sprawdzDane(szukaneImie,szukaneNazwisko))
+                {
+                    naglowek();
+                    kadra[i]->wyswietlDane();
+                    cout << "Aby powrocic do menu nacisnij [ENTER]." << endl;
+                    enter();
+                    break;
+                }
+            }
+            if(i==kadra.size())
+            {
+                cout << "Brak pracownika o takim imieniu u nazwisku. [ENTER]";
+                enter();
+                break;
+            }
+        }
+        break;
         case 5 :
+            if(kadra.empty())
+            {
+                cout << "Brak zatrudnionych pracownikow. [ENTER]" << endl;
+                enter();
+                break;
+            }
+            naglowek();
+            for(unsigned int i=0; i<kadra.size(); i++)
+                kadra[i]->wyswietlDane();
+            cout << "Aby powrocic do menu nacisnij [ENTER]." << endl;
+            enter();
             break;
         case 6 :
+            cout << "Liczba pracownikow: " << kadra.size() <<  ". [ENTER]" << endl;
+            enter();
+            break;
+        case 7 :
+            break;
+        case 8 :
+            kadra.clear();
+            cout << "Cala kadra zostala zwolniona. [ENTER]" << endl;
+            enter();
             break;
         }
+        system("cls");
     }
     while(wybor!=0);
     return 0;
