@@ -23,7 +23,7 @@ int main()
     do
     {
         cout << "Zarzadzanie kadra pracownicza" << endl;
-        cout << "[1] --> Zatrudnij stalego pracownik" << endl;
+        cout << "[1] --> Zatrudnij stalego pracownika" << endl;
         cout << "[2] --> Zatrudnij zleceniobiorce" << endl;
         cout << "[3] --> Zatrudnij handlujacego" << endl;
         cout << "[4] --> Wyswietl dane pracownika" << endl;
@@ -87,24 +87,46 @@ int main()
         }
         break;
         case 5 :
+        {
             if(kadra.empty())
             {
                 cout << "Brak zatrudnionych pracownikow. [ENTER]" << endl;
                 enter();
                 break;
             }
+            unsigned int i;
             naglowek();
-            for(unsigned int i=0; i<kadra.size(); i++)
+            for(i=0; i<kadra.size(); i++)
+            {
+                cout << i;
                 kadra[i]->wyswietlDane();
+            }
             cout << "Aby powrocic do menu nacisnij [ENTER]." << endl;
             enter();
-            break;
+        }
+        break;
         case 6 :
             cout << "Liczba pracownikow: " << kadra.size() <<  ". [ENTER]" << endl;
             enter();
             break;
         case 7 :
-            break;
+        {
+            if(kadra.empty())
+            {
+                cout << "Brak zatrudnionych pracownikow. [ENTER]" << endl;
+                enter();
+                break;
+            }
+            cout << "Usuwanie pracownika o podanym indeksie" << endl;
+            unsigned int szukanyIndeks;
+            cout << "Indeks:";
+            cin >> szukanyIndeks;
+            szukanyIndeks-=1;
+            kadra.erase(kadra.begin()+szukanyIndeks);
+            cout << "Aby powrocic do menu nacisnij [ENTER]." << endl;
+            enter();
+        }
+        break;
         case 8 :
             kadra.clear();
             cout << "Cala kadra zostala zwolniona. [ENTER]" << endl;
