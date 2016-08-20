@@ -87,7 +87,6 @@ void Handlujacy::obliczZarobki()
     wynagrodzenie = wartosc * transakcje * PROCENT;
 }
 
-//void Pracownik::zmianaZatrudnienia(Pracownik* prcwnk)
 void Pracownik::wyswietlDane()
 {
     cout.width(15);

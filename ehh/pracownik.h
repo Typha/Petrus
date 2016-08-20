@@ -27,9 +27,8 @@ public:
     string pesel;
     Pracownik();
     Pracownik(string im, string nzwsk, string psl, string np);
-    //void zmianaZatrudnienia(Pracownik* prcwnk);
     bool sprawdzDane(string im, string nzwsk);
-    virtual void wyswietlDane(); // spróbowaæ zero wpisaæ
+    virtual void wyswietlDane() = 0;
     virtual void obliczZarobki() = 0;
     virtual ~Pracownik() {};
 };
@@ -42,7 +41,7 @@ public:
     Staly();
     Staly(string im, string nzwsk, string psl, string np, double wngrdzn);
     void obliczZarobki() {} // bardzo wa¿ne
-    void wyswietlDane(); // const
+    void wyswietlDane();
     ~Staly() {};
 };
 
@@ -55,7 +54,7 @@ private:
 public:
     Zleceniobiorca();
     Zleceniobiorca(string im, string nzwsk, string psl, string np, double stwk, int gdzn);
-    void wyswietlDane(); // const
+    void wyswietlDane();
     void obliczZarobki();
     ~Zleceniobiorca() {}
 };
@@ -69,7 +68,7 @@ private:
 public:
     Handlujacy();
     Handlujacy(string im, string nzwsk, string psl, string np, double wrtsc, int trnskcj);
-    void wyswietlDane(); // const
+    void wyswietlDane();
     void obliczZarobki();
     ~Handlujacy() {}
 };
@@ -77,4 +76,5 @@ public:
 void enter();
 void naglowek();
 void czyszczenie();
+
 #endif
