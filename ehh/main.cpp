@@ -1,12 +1,13 @@
 //===============================================
 // Nazwa          : main.cpp
-// System         : Linux Ubuntu 16.04.1 LTS
+// System         : Windows 8
 // Autor          : Piotr
 // Opis           : Program drugi - Informatyka 2
-// Refaktoryzacja : 19.08.2016
+// Refaktoryzacja : 20.08.2016
 //===============================================
 
 #include <vector>
+#include <windows.h>
 #include "pracownik.h"
 
 int main()
@@ -118,8 +119,14 @@ int main()
             }
             cout << "Usuwanie pracownika o podanym indeksie" << endl;
             unsigned int szukanyIndeks;
-            cout << "Indeks:";
-            cin >> szukanyIndeks;
+            do
+            {
+                cout << "Indeks:";
+                cin.clear();
+                cin.sync();
+                cin >> szukanyIndeks;
+            }
+            while(szukanyIndeks>kadra.size() || !cin.good());
             kadra.erase(kadra.begin()+szukanyIndeks);
             cout << "Aby powrocic do menu nacisnij [ENTER]." << endl;
             enter();
@@ -131,7 +138,7 @@ int main()
             enter();
             break;
         }
-        czyszczenie();
+        system("cls");
     }
     while(wybor!=0);
     return 0;

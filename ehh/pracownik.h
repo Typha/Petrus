@@ -1,9 +1,9 @@
 //===============================================
 // Nazwa          : pracownik.h
-// System         : Linux Ubuntu 16.04.1 LTS
+// System         : Windows 8
 // Autor          : Piotr
 // Opis           : Program drugi - Informatyka 2
-// Refaktoryzacja : 19.08.2016
+// Refaktoryzacja : 20.08.2016
 //===============================================
 
 #ifndef PRACOWNIK_H
@@ -13,6 +13,7 @@
 #include <string>
 #define PROCENT 0.35
 #define PREMIA 1.5
+#define STRUMIEN 128
 
 using namespace std;
 
@@ -40,7 +41,7 @@ private:
 public:
     Staly();
     Staly(string im, string nzwsk, string psl, string np, double wngrdzn);
-    void obliczZarobki() {} // bardzo wa¿ne
+    void obliczZarobki() {} // istotne
     void wyswietlDane();
     ~Staly() {};
 };

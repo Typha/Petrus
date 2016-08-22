@@ -1,9 +1,9 @@
 //===============================================
 // Nazwa          : pracownik.cpp
-// System         : Linux Ubuntu 16.04.1 LTS
+// System         : Windows 8
 // Autor          : Piotr
 // Opis           : Program drugi - Informatyka 2
-// Refaktoryzacja : 19.08.2016
+// Refaktoryzacja : 20.08.2016
 //===============================================
 
 #include "pracownik.h"
@@ -153,6 +153,6 @@ void naglowek()
 
 void czyszczenie()
 {
-    printf("\033[2J"); // Czyœci ekran
-    printf("\033[0;0f"); // Ustawia kursor w lewym, górnym rogu
+    printf("\033[2J"); // Czysci ekran
+    printf("\033[0;0f"); // Ustawia kursor w lewym, gornym rogu
 }
