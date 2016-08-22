@@ -27,7 +27,7 @@ int main()
         cout << "[2] --> Zatrudnij zleceniobiorce" << endl;
         cout << "[3] --> Zatrudnij handlujacego" << endl;
         cout << "[4] --> Wyswietl dane pracownika" << endl;
-        cout << "[5] --> Wyswietl dane kadry" << endl;
+        cout << "[5] --> Wyswietl dane calej kadry" << endl;
         cout << "[6] --> Wyswietl liczbe pracownikow" << endl;
         cout << "[7] --> Zwolnij pracownika" << endl;
         cout << "[8] --> Zwolnij cala kadre" << endl;
@@ -128,7 +128,7 @@ int main()
             }
             while(szukanyIndeks>kadra.size() || !cin.good());
             kadra.erase(kadra.begin()+szukanyIndeks);
-            cout << "Aby powrocic do menu nacisnij [ENTER]." << endl;
+            cout << "Usunieto pracownika. Aby powrocic do menu nacisnij [ENTER]." << endl;
             enter();
         }
         break;
