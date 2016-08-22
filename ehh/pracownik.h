@@ -1,6 +1,6 @@
 //===============================================
 // Nazwa          : pracownik.h
-// System         : Windows 8
+// System         : Linux Ubuntu 16.04.1 LTS
 // Autor          : Piotr
 // Opis           : Program drugi - Informatyka 2
 // Refaktoryzacja : 19.08.2016

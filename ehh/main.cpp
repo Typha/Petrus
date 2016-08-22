@@ -1,13 +1,12 @@
 //===============================================
 // Nazwa          : main.cpp
-// System         : Windows 8
+// System         : Linux Ubuntu 16.04.1 LTS
 // Autor          : Piotr
 // Opis           : Program drugi - Informatyka 2
 // Refaktoryzacja : 19.08.2016
 //===============================================
 
 #include <vector>
-#include <windows.h>
 #include "pracownik.h"
 
 int main()
@@ -22,7 +21,7 @@ int main()
     unsigned short wybor;
     do
     {
-        cout << "Zarzadzanie kadra pracownicza" << endl;
+        cout << "Zarzadzanie kadra pracownicza:" << endl;
         cout << "[1] --> Zatrudnij stalego pracownika" << endl;
         cout << "[2] --> Zatrudnij zleceniobiorce" << endl;
         cout << "[3] --> Zatrudnij handlujacego" << endl;
@@ -60,7 +59,7 @@ int main()
                 enter();
                 break;
             }
-            cout << "Wyszukiwanie pracownika na podstawie imienia i nazwiska...";
+            cout << "Wyszukiwanie pracownika na podstawie imienia i nazwiska..." << endl;
             string szukaneImie,szukaneNazwisko;
             cout << "Imie: ";
             cin >> szukaneImie;
@@ -71,7 +70,6 @@ int main()
             {
                 if(kadra[i]->sprawdzDane(szukaneImie,szukaneNazwisko))
                 {
-                    naglowek();
                     kadra[i]->wyswietlDane();
                     cout << "Aby powrocic do menu nacisnij [ENTER]." << endl;
                     enter();
@@ -98,7 +96,8 @@ int main()
             naglowek();
             for(i=0; i<kadra.size(); i++)
             {
-                cout << i;
+                cout.width(5);
+                cout << left << i;
                 kadra[i]->wyswietlDane();
             }
             cout << "Aby powrocic do menu nacisnij [ENTER]." << endl;
@@ -121,7 +120,6 @@ int main()
             unsigned int szukanyIndeks;
             cout << "Indeks:";
             cin >> szukanyIndeks;
-            szukanyIndeks-=1;
             kadra.erase(kadra.begin()+szukanyIndeks);
             cout << "Aby powrocic do menu nacisnij [ENTER]." << endl;
             enter();
@@ -133,7 +131,7 @@ int main()
             enter();
             break;
         }
-        system("cls");
+        czyszczenie();
     }
     while(wybor!=0);
     return 0;
